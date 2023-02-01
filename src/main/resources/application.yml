@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    group:
+      "local": "local,logging_local"
+      "dev": "dev,logging_dev"
+      "prod": "prod,logging_daily"
+    active: local
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+app:
+  filePath: /home/jpacrud/cms/resource

@@ -1,0 +1,43 @@
+server:
+  port: 9400
+  servlet:
+    context-path: /api/jpacrud/cms
+    encoding:
+      charset: UTF-8
+      enabled:
+      force: true
+
+spring:
+  jwt:
+    secret: secretkey1!
+  datasource:
+    url: jdbc:mariadb://localhost:3306/jpacrudcms?serverTimezone=Asia/Seoul
+    username: jpacrudcms
+    password: jpacrudcms
+    datasource: driver-class-name=org.mariadb.jdbc.Driver
+  spring-doc:
+    api-docs:
+      groups:
+        enabled: true
+    swagger-ui:
+      path: /swagger-ui.html
+      displayRequestDuration: true
+      groups-order: DESC
+  jpa:
+    show-sql: true
+    open-in-view: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+        default_batch_fetch_size: 1000
+app:
+  filePath: /home/bit/jpacrud/cms/resource
+  hash: 123456789
+hash: hash1!
+billing: billing1!
