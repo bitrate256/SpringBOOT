@@ -40,4 +40,8 @@ public class UserCreateDto extends User {
     private String accountNumber;
 
     private String createId;
+
+    // ID 중복 여부 (Y : 중복 / N : 중복아님)
+    // 프론트와 협의 필요. 프론트 페이지 히든값으로 갖고있는 것이 좋을 것.
+    private String duplicateId;
 }

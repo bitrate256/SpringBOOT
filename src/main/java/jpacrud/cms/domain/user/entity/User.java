@@ -2,6 +2,7 @@ package jpacrud.cms.domain.user.entity;
 
 import jpacrud.cms.domain.company.dto.CompanyCreateDto;
 import jpacrud.cms.domain.franchise.dto.FranchiseCreateDto;
+import jpacrud.cms.domain.user.dto.UserCreateDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -109,7 +110,7 @@ public class User implements Serializable {
     @Column(name = "contract_status", nullable = false)
     private String contractStatus;
 
-    @Comment("수수료율(부동소수점 오차 피하기 위해 Decimal 타입 사용)")
+    @Comment("수수료율")
     @Column(name = "commission_rate", nullable = false)
     private double commissionRate;
 
@@ -211,6 +212,22 @@ public class User implements Serializable {
                 .accountNumber(dto.getAccountNumber())
                 .createDateTime(localDateTime)
                 .createId(dto.getCreateId())
+                .delYn("Y")
+                .build();
+    }
+
+    public static User createUserOnly(UserCreateDto dto) {
+        LocalDateTime localDateTime = LocalDateTime.now();
+        localDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"));
+        return User.builder()
+                .userId(dto.getUserId())
+                .userPw(dto.getUserPw())
+                .userAuth(dto.getUserAuth())
+                .managerName(dto.getManagerName())
+                .managerContact(dto.getManagerContact())
+                .managerEmail(dto.getManagerEmail())
+                .loginAllowCheck("1")
+                .createDateTime(localDateTime)
                 .delYn("Y")
                 .build();
     }
